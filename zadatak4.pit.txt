@@ -1,0 +1,90 @@
+namespace brm
+{
+    public partial class Form1 : Form
+    {
+        List<Button> lista2 = new List<Button>();
+        int brojtastera = 12;
+        int spid = 1;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button2.Focus();
+            button3.PerformClick();
+            timer1.Start();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            for (int i = 0; i < brojtastera; i++)
+            {
+                Button taster = new Button();
+                int x = r.Next(0, 17);
+                int y = r.Next(0, 17);
+                int red = r.Next(0, 255);
+                int blue = r.Next(0, 255);
+                int green = r.Next(0, 255);
+                taster.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
+                taster.Location = new Point(20 * x, 20 * y);
+                taster.Size = new Size(20, 20);
+                panel2.Controls.Add(taster);
+                lista2.Insert(0, taster);
+            }
+
+        }
+
+        private void button2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'a') button2.Left -= 10;
+            if (e.KeyChar == 's') button2.Top += 10;
+            if (e.KeyChar == 'd') button2.Left += 10;
+            if (e.KeyChar == 'w') button2.Top -= 10;
+
+            if (button2.Left < -20) button2.Left = 348;
+            if (button2.Left > 348) button2.Left = -20;
+            if (button2.Top < -20) button2.Top = 363;
+            if (button2.Top > 363) button2.Top = -20;
+
+            for (int i = 0; i < lista2.Count; i++)
+            {
+                Button kojitast = lista2[i];
+                if (button2.Bounds.IntersectsWith(kojitast.Bounds))
+                {
+                    kojitast.Dispose();
+                    lista2.Remove(kojitast);
+                    spid += 1;
+                }
+            }
+            if (lista2.Count() == 0)
+            {
+                MessageBox.Show("POBEDIO SI");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random v=new Random();
+            int pravac=v.Next(0,4);
+            if (pravac == 0) button4.Left -= spid;
+            if (pravac == 1) button4.Left += spid;
+            if (pravac == 2) button4.Top -= spid;
+            if (pravac == 3) button4.Top += spid;
+
+            if (button2.Left < button4.Left) button4.Left -= spid;
+            if (button2.Left > button4.Left) button4.Left += spid;
+            if (button2.Top < button4.Top) button4.Top -= spid;
+            if (button2.Top > button4.Top) button4.Top += spid;
+
+            if (button2.Bounds.IntersectsWith(button4.Bounds))
+            {
+                button2.Enabled = false;
+                timer1.Stop();
+                MessageBox.Show("GAME OVER");
+            }
+        }
+    }
+}

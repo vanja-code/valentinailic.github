@@ -1,0 +1,44 @@
+namespace zadatak3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            button2.Enabled = true;
+            button2.Focus();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Random x = new Random();
+            int pravac = x.Next(0, 4);
+            if (pravac == 0) button3.Left -= 3;
+            if (pravac == 1) button3.Top += 3;
+            if (pravac == 2) button3.Top -= 3;
+            if (pravac == 3) button3.Left += 3;
+            if (button2.Left > button3.Left) button3.Left += 2;
+            if (button2.Left < button3.Left) button3.Left -= 2;
+            if (button2.Top > button3.Left) button3.Top += 2;
+            if (button2.Top < button3.Top) button3.Top -= 2;
+            if (button2.Bounds.IntersectsWith(button3.Bounds))
+                MessageBox.Show("GAME OVER");
+            if (button3.Bounds.IntersectsWith(button2.Bounds))
+                MessageBox.Show("GAME OVER");
+
+        }
+
+        private void button2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'a') button2.Left = button2.Left - 10;
+            if (e.KeyChar == 'd') button2.Left = button2.Left + 10;
+            if (e.KeyChar == 'w') button2.Top = button2.Top - 10;
+            if (e.KeyChar == 's') button2.Top = button2.Top + 10;
+        }
+    }
+}
