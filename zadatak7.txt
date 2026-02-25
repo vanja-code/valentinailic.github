@@ -1,25 +1,26 @@
 #include <iostream>
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-
-struct njiva{
-    int duz, sir;
-};
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+using namespace std;
 
 int main()
 {
-    njiva niz[10];
-    int i, m;
+    int maxi=0, i, x, niz[10], riz[10], k;
     srand(time(0));
+    k=rand()%100;
     for(i=0;i<10;i++)
     {
-        niz[i].duz=rand()%100;
-        niz[i].sir=rand()%100;
-        printf("\n%d Njiva %d x %d povrsina %d", i+1, niz[i].duz, niz[i].sir, niz[i].duz*niz[i].sir);
-        if(niz[i].duz*niz[i].sir>m)
-            m=niz[i].duz*niz[i].sir;
+        niz[i]=rand()%100;
+        riz[i]=niz[i]*k;
+        printf("\n%d", niz[i]);
+        if(maxi<niz[i])//dopuna 1
+            maxi=niz[i];
     }
-    printf("\nNajveca njiva izrazena u arima je %d", m/100);
+    for(i=0;i<10;i++)//dopuna 2
+    {
+        printf("\n\n%d", riz[i]);
+    }
+    printf("\n%d", maxi);
     return 0;
 }

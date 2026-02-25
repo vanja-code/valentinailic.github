@@ -1,26 +1,26 @@
 #include <iostream>
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-
-struct cepanica{
-    int duz, pr;
-};
-
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 using namespace std;
 
 int main()
 {
-    cepanica niz[1000];
-    int i;
-    float V, m=0;
-    for(i=0;i<1000;i++)
+    int maxi=0, i, x, niz[10], riz[10], k;
+    srand(time(0));
+    k=rand()%100;
+    for(i=0;i<10;i++)
     {
-        niz[i].duz=rand()%100;
-        niz[i].pr=rand()%100;
-        V=niz[i].pr/2*niz[i].pr/2*3.14*niz[i].duz;
-        m+=V;
+        niz[i]=rand()%100;
+        riz[i]=niz[i]*k;
+        printf("\n%d", niz[i]);
+        if(maxi<niz[i])//dopuna 1
+            maxi=niz[i];
     }
-    printf("\nDeda ima %.2f kubika drva", m/1000000);
+    for(i=0;i<10;i++)//dopuna 2
+    {
+        printf("\n\n%d", riz[i]);
+    }
+    printf("\n%d", maxi);
     return 0;
 }
