@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaci</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f2e8ff;
+    color: #333;
+}
+
+/* Gornja navigaciona traka – izmenjena da bude kao na početnoj */
+.navbar {
+    background-color: #fff;
+    color: #d060ff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    color: #d060ff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #7a1fa2;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d060ff;
+}
+
+/* Naslov stranice */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #9b4dff;
+}
+
+/* Sekcije */
+.section {
+    margin: 30px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ff4dff;
+}
+
+/* Kartice */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .zad-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #9b4dff;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.card a {
+    text-decoration: none;
+    color: #ff4dff;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Moji Zadaci</div>
+        <div class="links">
+            <a href="index.html">Početna</a>
+            <a href="#zadaci">Zadaci</a>
+        </div>
+    </div>
+
+    <h1>Zadaci iz programiranja</h1>
+
+    <div id="zadaci">
+
+        <!-- C# BEZ BAZA PODATAKA-->
+        <div class="section">
+            <div class="section-title">C# BEZ BAZA PODATAKA</div>
+
+            <div class="card">
+                <div class="zad-label">ZADATAK 1</div>
+                <p>Kreirati aplikaciju koja ima tab control sa 8 tabova, ima meni koji služi za navigaciju po tab contorli. Na svakom tabu korisnik bira neku opciju da li će se uraditi ili ne! Promena boje, fonta, veličine forme...</p>
+                <a href="zzadatak1.txt">Prikaži</a>
+                <a href="sslika1.png">Dokaz</a>
+            </div>
+
+            <div class="card">
+                <div class="zad-label">ZADATAK 2</div>
+                <p>Omoguciti menjanje boje linije menjanje boje tacke za crtanje, dugme za crtanje kruga i pravougaonika, napraviti program paint.</p>
+                <a href="zzadatak2.txt">Prikaži</a>
+                <a href="sslika2.png">Dokaz</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
